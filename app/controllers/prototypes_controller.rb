@@ -1,13 +1,13 @@
 class PrototypesController < ApplicationController
-  protect_from_forgery with: :null_session
-  before_action :authenticate_user!
   before_action :move_to_index, except: [:index, :show]
+  before_action :authenticate_user!
+
   def index
     @prototypes = Prototype.all
   end
 
   def new
-    @prototypes = Prototype.new
+    @prototype = Prototype.new
   end
 
   def create
